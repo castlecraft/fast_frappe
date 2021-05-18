@@ -2,7 +2,15 @@
 
 FastAPI using Frappe Framework
 
-Use example to build microservice or serverless function
+Use example to build serverless function using frappe framework.
+
+### Prerequisites
+
+- Core development happens with standard `bench start`.
+- Already running `frappe-bench` like setup.
+- Connection to same mariadb, redis that the `frappe-bench` connects to.
+- Access to `sites` directory of the `frappe-bench`
+- Valid site to set it as `SITE_NAME` environment variable.
 
 ### Installation
 
@@ -21,7 +29,10 @@ Using `uvicorn`
 ```shell
 cd ~/frappe-bench
 . ./env/bin/activate
-cd frappe-bench/sites
+
+# Execute app from sites directory
+cd ~/frappe-bench/sites
+# Set SITE_NAME to use for the function
 SITE_NAME=function.local uvicorn fast_frappe.main:app --port 3000
 ```
 
@@ -29,6 +40,21 @@ SITE_NAME=function.local uvicorn fast_frappe.main:app --port 3000
 
 ```
 curl -s http://localhost:3000 | jq .
+```
+
+### Containerized
+
+Build
+
+```shell
+cd ~/frappe-bench/apps/fast_frappe
+docker build -t fast_frappe:latest .
+```
+
+Run
+
+```shell
+docker run -v /path/to/sites:/home/frappe/frappe-bench/sites --publish 3000:3000 fast_frappe:latest
 ```
 
 ### Description
