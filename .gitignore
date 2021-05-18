@@ -4,3 +4,16 @@
 *.swp
 tags
 fast_frappe/docs/current
+.env
+*.py~
+conf.py
+locale
+latest_updates.json
+.wnf-lang-status
+dist/
+*.swo
+__pycache__
+*~
+.idea/
+.vscode/
+node_modules/
