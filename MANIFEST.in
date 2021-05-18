@@ -1,0 +1,18 @@
+include MANIFEST.in
+include requirements.txt
+include *.json
+include *.md
+include *.py
+include *.txt
+recursive-include fast_frappe *.css
+recursive-include fast_frappe *.csv
+recursive-include fast_frappe *.html
+recursive-include fast_frappe *.ico
+recursive-include fast_frappe *.js
+recursive-include fast_frappe *.json
+recursive-include fast_frappe *.md
+recursive-include fast_frappe *.png
+recursive-include fast_frappe *.py
+recursive-include fast_frappe *.svg
+recursive-include fast_frappe *.txt
+recursive-exclude fast_frappe *.pyc
